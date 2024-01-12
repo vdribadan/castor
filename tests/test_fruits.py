@@ -5,7 +5,6 @@ from app.models import Fruit
 
 class FruitTestCase(unittest.TestCase):
 
-    # Initializes the test client and an in-memory SQLite database
     def setUp(self):
         self.app = app.test_client()
         self.app.testing = True
@@ -17,8 +16,7 @@ class FruitTestCase(unittest.TestCase):
             test_fruit = Fruit(name='Apple', color='Red')
             db.session.add(test_fruit)
             db.session.commit()
-            
-    # Cleans up the database after each test
+
     def tearDown(self):
         with app.app_context():
             db.session.remove()
@@ -31,7 +29,7 @@ class FruitTestCase(unittest.TestCase):
         data = json.loads(response.data)
         self.assertIsInstance(data, list)
         self.assertGreater(len(data), 0)
-
+    
     # Verifies that GET request to /fruits/1 returns the correct fruit
     def test_get_single_fruit(self):
         response = self.app.get('/fruits/1')
