@@ -53,5 +53,5 @@ jobs:
         context: .
         file: ./Dockerfile
         push: true
-        tags: ghcr.io/${{ github.repository }}/castor-crud:latest
+        tags: ghcr.io/${{ github.repository }}/fruits-api:latest
         platforms: linux/amd64,linux/arm64
