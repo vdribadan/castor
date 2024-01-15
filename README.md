@@ -56,13 +56,43 @@ docker build -t fruits-api .
 docker run -d -p 5000:5000 fruits-api
 
 ## Testing
-To run the automated tests:
+**To run the automated tests:**
 
 python -m unittest discover tests
 
 
-## Continuous Integration and Deployment
-This project is configured with GitHub Actions for continuous integration and deployment. Upon each push or pull request to the `main` branch, the CI workflow runs automated tests, builds the Docker image, and pushes it to the GitHub Container Registry.
+## Continuous Integration and Deployment (CI/CD)
+
+### Overview
+This project implements a CI/CD pipeline using GitHub Actions, which automates the testing, building, and deployment of the application. The pipeline is triggered on push events to the `main` branch and on the creation of pull requests against `main`.
+
+### Workflow Details
+
+1. **Automated Testing:**  
+   Upon every push or pull request to `main`, the pipeline automatically runs the unit tests defined in the `tests` directory. These tests ensure that new changes do not break existing functionality. If any test fails, the pipeline stops, preventing the integration of failing code.
+
+2. **Docker Image Building:**  
+   If all tests pass, the pipeline proceeds to build a Docker image for the application. This image encapsulates the application and its environment, ensuring consistent behavior across different setups.
+
+3. **Multi-Platform Support:**  
+   The Docker image is built for multiple platforms, including `linux/amd64` and `linux/arm64`, ensuring compatibility with different types of infrastructure, from traditional Intel/AMD servers to modern ARM-based systems.
+
+4. **Docker Image Publishing:**  
+   After the image is built, it's automatically pushed to the GitHub Container Registry (GHCR). This makes the image readily available for deployment. The image is tagged with the `latest` tag for easy reference.
+
+5. **Security and Best Practices:**  
+   The pipeline uses `secrets.GITHUB_TOKEN` for authentication with GHCR, ensuring security and adherence to best practices.
+
+### Local Testing and Deployment
+
+Developers can test and deploy the application locally following the instructions in the [Local Setup](#local-setup) and [Running with Docker](#running-with-docker) sections. This includes steps for running the application and Docker commands for building and running the container.
+
+### Notes
+
+- The workflow configuration can be found in the `.github/workflows` directory of the repository.
+- The Dockerfile used for building the image is located at the root of the repository.
+
+
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
