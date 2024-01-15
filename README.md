@@ -53,6 +53,13 @@ curl -X POST http://localhost:5000/fruits -H "Content-Type: application/json" -d
 - **Delete Fruit:**
 curl -X DELETE http://localhost:5000/fruits/{id}
 
+  ***Example:***
+  This example deletes the fruit with ID 1
+
+  ```bash
+   curl -X DELETE http://localhost:5000/fruits/1
+  ```
+
 - **Update Fruit Name and/or Color:**
   curl -X PUT http://localhost:5000/fruits/{id} -H "Content-Type: application/json" -d '{"name": "New Fruit", "color": "New Color"}'
 
@@ -60,9 +67,9 @@ curl -X DELETE http://localhost:5000/fruits/{id}
   This example updates the fruit with ID 1 to have the name "Grape" and the color "Green"
 
   ```bash
-     curl -X PUT http://localhost:5000/fruits/1 \
-     -H "Content-Type: application/json" \
-     -d '{"name": "Grape", "color": "Green"}'
+   curl -X PUT http://localhost:5000/fruits/1 \
+   -H "Content-Type: application/json" \
+   -d '{"name": "Grape", "color": "Green"}'
   ```
 
 
@@ -95,7 +102,7 @@ This project implements a CI/CD pipeline using GitHub Actions, which automates t
    If all tests pass, the pipeline proceeds to build a Docker image for the application. This image encapsulates the application and its environment, ensuring consistent behavior across different setups.
 
 3. **Multi-Platform Support:**  
-   The Docker image is built for multiple platforms, including `linux/amd64` and `linux/arm64`, ensuring compatibility with different types of infrastructure, from traditional Intel/AMD servers to modern ARM-based systems.
+   The Docker image is built for multiple platforms, including `linux/amd64` and `linux/arm64`, ensuring compatibility with different types of infrastructure.
 
 4. **Docker Image Publishing:**  
    After the image is built, it's automatically pushed to the GitHub Container Registry (GHCR). This makes the image readily available for deployment. The image is tagged with the `latest` tag for easy reference.
