@@ -29,6 +29,20 @@ def add_fruit():
     db.session.commit()
     return jsonify({"id": new_fruit.id, "name": new_fruit.name, "color": new_fruit.color}), 201
 
+# Update fruit properties
+@api.route('/fruits/<int:id>', methods=['PUT'])
+def update_fruit(id):
+    fruit = Fruit.query.get_or_404(id)
+    data = request.get_json()
+
+    if 'name' in data:
+        fruit.name = data['name']
+    if 'color' in data:
+        fruit.color = data['color']
+
+    db.session.commit()
+    return jsonify({"id": fruit.id, "name": fruit.name, "color": fruit.color}), 200
+
 # Delete a fruit by ID
 @api.route('/fruits/<int:id>', methods=['DELETE'])
 def delete_fruit(id):

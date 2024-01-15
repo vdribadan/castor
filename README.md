@@ -40,11 +40,31 @@ curl http://localhost:5000/fruits
 - **Get Specific Fruit:**
 curl http://localhost:5000/fruits/{id}
 
+  ***Example:***
+  This example retrieves the fruit with ID 1
+
+  ```bash
+   curl http://localhost:5000/fruits/1
+  ```
+
 - **Add New Fruit:**
 curl -X POST http://localhost:5000/fruits -H "Content-Type: application/json" -d '{"name": "Cherry", "color": "Red"}'
 
 - **Delete Fruit:**
 curl -X DELETE http://localhost:5000/fruits/{id}
+
+- **Update Fruit Name and/or Color:**
+  curl -X PUT http://localhost:5000/fruits/{id} -H "Content-Type: application/json" -d '{"name": "New Fruit", "color": "New Color"}'
+
+  ***Example:***
+  This example updates the fruit with ID 1 to have the name "Grape" and the color "Green"
+
+  ```bash
+     curl -X PUT http://localhost:5000/fruits/1 \
+     -H "Content-Type: application/json" \
+     -d '{"name": "Grape", "color": "Green"}'
+  ```
+
 
 ## Running with Docker
 To run the application in a Docker container, follow these steps:
