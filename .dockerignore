@@ -4,6 +4,7 @@ tests/
 *.pyc
 .git
 .gitignore
+.github
 Dockerfile
 LICENSE
 README.md
