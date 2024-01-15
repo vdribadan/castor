@@ -2,7 +2,7 @@ from flask import Blueprint, request, jsonify, abort
 from app.models import Fruit
 from app import db
 
-# Create a Blueprint
+# Create a Blueprint for API endpoints
 api = Blueprint('api', __name__)
 
 # List all fruits

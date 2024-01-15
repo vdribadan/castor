@@ -18,6 +18,7 @@ def initialize_database():
             db.session.commit()
 
 if __name__ == "__main__":
+    # Start the Flask app (not for testing)
     if not app.config.get('TESTING'):
         initialize_database()
     app.run(host='0.0.0.0', port=5000, debug=True)
