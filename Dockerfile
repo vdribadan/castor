@@ -1,8 +1,8 @@
-# Add a label for pushing to ghcr
-LABEL org.opencontainers.image.source=https://github.com/vdribadan/castor
-
 # Use a smaller base image
 FROM python:3.11-alpine
+
+# Add a label for pushing to ghcr
+LABEL org.opencontainers.image.source=https://github.com/vdribadan/castor
 
 # Set the working directory in the container to /usr/src/app
 WORKDIR /usr/src/app
