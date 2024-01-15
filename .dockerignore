@@ -4,3 +4,6 @@ tests/
 *.pyc
 .git
 .gitignore
+Dockerfile
+LICENSE
+README.md
