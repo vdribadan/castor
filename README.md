@@ -8,6 +8,7 @@ The Fruits API Service is a simple Flask-based web application that provides an 
 - **Get Specific Fruit:** Fetch details of a specific fruit by ID.
 - **Add New Fruit:** Add a new fruit entry to the database.
 - **Delete Fruit:** Remove a fruit entry from the database.
+- **Update Fruit:** Update fruit entry and/or it's color
 
 ## Technology Stack
 - **Language:** Python 3.11
